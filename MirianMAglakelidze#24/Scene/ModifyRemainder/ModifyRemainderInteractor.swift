@@ -14,6 +14,7 @@ import UIKit
 
 protocol CreateRemainderBusinessLogic {
     func addRemainder(request: ModifyRemainder.Info.Request)
+    func editRemainder(request: ModifyRemainder.Info.Request)
 }
 
 protocol ModifyRemainderDataStore {
@@ -21,8 +22,8 @@ protocol ModifyRemainderDataStore {
     var remainderData: RemainderForm? { get set }
 }
 
-class ModifyRemainderInteractor: CreateRemainderBusinessLogic, ModifyRemainderDataStore
-{
+class ModifyRemainderInteractor: CreateRemainderBusinessLogic, ModifyRemainderDataStore {
+    
     var presenter: CreateRemainderPresentationLogic?
     var worker: ModifyRemainderWorker?
     var name: String = ""
@@ -36,4 +37,13 @@ class ModifyRemainderInteractor: CreateRemainderBusinessLogic, ModifyRemainderDa
             self?.presenter?.presentMessage(response: response)
         })
     }
+    
+    func editRemainder(request: ModifyRemainder.Info.Request) {
+        worker = ModifyRemainderWorker()
+        worker?.editRemainderNote(in: name, oldRemanderName: remainderData!.title, remainder: request.remainder, complition: { [weak self] error in
+            let response = ModifyRemainder.Info.Response(error: error)
+            self?.presenter?.presentMessage(response: response)
+        })
+    }
+
 }

@@ -27,7 +27,6 @@ class DirectoryFileWorker {
     
     func getFiles(complition: @escaping ([String]) -> Void ) {
         guard let fileManegeUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        
         do {
             let file = try FileManager.default.contentsOfDirectory(atPath: fileManegeUrl.path)
             complition(file)

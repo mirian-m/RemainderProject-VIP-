@@ -40,14 +40,21 @@ class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLog
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(addRemainder))
-        ]
         
-        guard let data = router?.dataStore?.remainderData else { return }
+        guard let data = router?.dataStore?.remainderData else {
+            navigationItem.rightBarButtonItems = [
+                UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(addRemainder))
+            ]
+            return
+        }
+        
         self.remainderTitle.text = data.title
         self.remainderInfo.text = data.info
         self.dataPicker.date = data.date
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(editRemainder))
+        ]
+
     }
     
     // MARK: Setup
@@ -72,6 +79,11 @@ class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLog
         interactor?.addRemainder(request: request)
     }
 
+    @objc func editRemainder() {
+        let remander = RemainderForm(title: remainderTitle.text ?? "", info: remainderInfo.text ?? "", date: dataPicker.date)
+        let request = ModifyRemainder.Info.Request(remainder: remander)
+        interactor?.editRemainder(request: request)
+    }
     
     func displayMessage(viewModel: ModifyRemainder.Info.ViewModel) {
         showAler(message: viewModel.massege)
