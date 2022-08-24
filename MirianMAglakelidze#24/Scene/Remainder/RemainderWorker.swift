@@ -13,7 +13,7 @@
 import UIKit
 
 class RemainderWorker {
-    
+
     func getRemaindersFile(directory: String,complition: @escaping ([Data]) -> Void ) {
         var remaindersData: [Data] = []
         let createRemaindeFolderAddress = "\(String(describing: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path))/\(directory)"
@@ -29,14 +29,4 @@ class RemainderWorker {
         }
         complition(remaindersData)
     }
-    
-    func deleteRemainderNote(in directory: String, remainderTitle: String) {
-        let createRemaindeFolderAddress = "\(String(describing: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path))/\(directory)/\(remainderTitle).txt"
-        do {
-            try FileManager.default.removeItem(atPath: createRemaindeFolderAddress)
-        } catch {
-            print(error)
-        }
-    }
-    
 }

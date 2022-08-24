@@ -19,7 +19,11 @@ protocol CreateRemainderDisplayLogic: class {
 class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLogic {
     @IBOutlet weak var remainderTitle: UITextField!
     @IBOutlet weak var remainderInfo: UITextField!
-    @IBOutlet weak var dataPicker: UIDatePicker!
+    @IBOutlet weak var dataPicker: UIDatePicker! {
+        didSet {
+            dataPicker.minimumDate = Date()
+        }
+    }
     
     var interactor: CreateRemainderBusinessLogic?
     var router: (NSObjectProtocol & CreateRemainderRoutingLogic & CreateRemainderDataPassing)?
@@ -40,24 +44,26 @@ class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLog
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         guard let data = router?.dataStore?.remainderData else {
             navigationItem.rightBarButtonItems = [
                 UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(addRemainder))
             ]
             return
         }
-        
         self.remainderTitle.text = data.title
         self.remainderInfo.text = data.info
         self.dataPicker.date = data.date
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(editRemainder))
         ]
-
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super .viewWillDisappear(true)
     }
     
     // MARK: Setup
+    
     private func setup() {
         let viewController = self
         let interactor = ModifyRemainderInteractor()
@@ -71,24 +77,27 @@ class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLog
         router.dataStore = interactor
     }
     
-    // MARK: Routing
+    //    MARK: - @IBOutlet ACTIONS
     
     @objc func addRemainder() {
         let remander = RemainderForm(title: remainderTitle.text ?? "", info: remainderInfo.text ?? "", date: dataPicker.date)
         let request = ModifyRemainder.Info.Request(remainder: remander)
         interactor?.addRemainder(request: request)
     }
-
+    
     @objc func editRemainder() {
         let remander = RemainderForm(title: remainderTitle.text ?? "", info: remainderInfo.text ?? "", date: dataPicker.date)
         let request = ModifyRemainder.Info.Request(remainder: remander)
         interactor?.editRemainder(request: request)
     }
     
+    //    MARK: - DISPLAY FUNCS
+    
     func displayMessage(viewModel: ModifyRemainder.Info.ViewModel) {
         showAler(message: viewModel.massege)
     }
     
+    //    MARK: - ALERT
     func showAler(message: String) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .cancel) {[weak self] _ in

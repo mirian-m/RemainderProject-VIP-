@@ -29,7 +29,7 @@ class DirectoryFileInteractor: DirectoryFileBusinessLogic, DirectoryFileDataStor
     var worker: DirectoryFileWorker?
     var tappedFileName: String = ""
     
-    // MARK: Do something
+    // MARK: Do 
     
     func addDirectory(request: DirectoryFile.DirectoryInfo.Request) {
         worker = DirectoryFileWorker()
@@ -41,7 +41,7 @@ class DirectoryFileInteractor: DirectoryFileBusinessLogic, DirectoryFileDataStor
     
     func getFile(request: DirectoryFile.Directory.Request) {
         worker = DirectoryFileWorker()
-        worker?.getFiles(complition: { files in
+        worker?.getDocumentsName(complition: { files in
             let respons = DirectoryFile.Directory.Response(objects: files)
             self.presenter?.presentFileNames(response: respons)
         })

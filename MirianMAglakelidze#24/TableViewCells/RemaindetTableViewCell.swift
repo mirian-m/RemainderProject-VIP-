@@ -11,7 +11,7 @@ class RemaindetTableViewCell: UITableViewCell {
 
     @IBOutlet weak var remainderTitle: UILabel!
     @IBOutlet weak var remainderInfoLb: UILabel!
-    @IBOutlet weak var data: UILabel!
+    @IBOutlet weak var date: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,7 +26,6 @@ class RemaindetTableViewCell: UITableViewCell {
     func configure(remainderData: RemainderForm) {
         self.remainderTitle.text = remainderData.title.uppercased()
         self.remainderInfoLb.text = remainderData.info
-        self.data.text = "\(remainderData.date)"
+        self.date.text = "\(remainderData.date)"
     }
-
 }

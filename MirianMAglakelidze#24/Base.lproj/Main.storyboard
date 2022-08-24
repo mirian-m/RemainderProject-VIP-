@@ -122,7 +122,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="data" destination="W5B-tA-21G" id="Wad-Jk-Nw5"/>
+                                    <outlet property="date" destination="W5B-tA-21G" id="2f8-Tg-0AY"/>
                                     <outlet property="remainderInfoLb" destination="JYF-lo-5ZP" id="0qc-cJ-TFe"/>
                                     <outlet property="remainderTitle" destination="7ns-ga-lqm" id="3Vf-Qm-eBk"/>
                                 </connections>
@@ -162,8 +162,14 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <datePicker contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="6R4-fq-VoM">
+                            <datePicker contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="6R4-fq-VoM">
                                 <rect key="frame" x="20" y="180" width="374" height="216"/>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="685483200">
+                                    <!--2022-09-21 20:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167508800">
+                                    <!--2037-12-30 20:00:00 +0000-->
+                                </date>
                                 <locale key="locale" localeIdentifier="ka_GE"/>
                             </datePicker>
                         </subviews>

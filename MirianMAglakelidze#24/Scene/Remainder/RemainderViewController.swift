@@ -19,10 +19,10 @@ protocol RemainderDisplayLogic: class {
 class RemainderViewController: UITableViewController, RemainderDisplayLogic {
     var interactor: RemainderBusinessLogic?
     var router: (NSObjectProtocol & RemainderRoutingLogic & RemainderDataPassing)?
-    lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+    private lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
     
-    var remainders: [RemainderForm] = []
-    var  tappedCellIndex: Int?
+    private var remainders: [RemainderForm] = []
+    private var  tappedCellIndex: Int?
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -33,6 +33,25 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.addGestureRecognizer(longPressGesture)
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "doc.fill.badge.plus")?
+                                .withTintColor(UIColor.black,
+                                               renderingMode: .alwaysOriginal),
+                            style: .done, target: self, action: #selector(addRemainder)),
+            
+        ]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getRemainders()
     }
     
     // MARK: Setup
@@ -50,7 +69,13 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
         router.dataStore = interactor
     }
     
-    // MARK: View lifecycle
+    //    MARK:- @IBACTIONS
+    
+    @objc func addRemainder() {
+        interactor?.editRemainder(request: Remainder.RemainderData.Request())
+        router?.routeToCreateRemander(segue: nil)
+    }
+    
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             let touchPoint = sender.location(in: tableView)
@@ -61,16 +86,18 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
         showActionSheet()
     }
     
+    //    MARK: - ACTIONSHEET FUNC
+    
     func showActionSheet() {
         let alert = UIAlertController(title: "", message: "Please Select an Option", preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Edit", style: .default , handler:{ [weak self] (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Edit", style: .default , handler:{ [weak self] _ in
             let request = Remainder.RemainderData.Request(remainder: self?.remainders[self!.tappedCellIndex!])
             self?.interactor?.editRemainder(request: request)
             self?.router?.routeToCreateRemander(segue: nil)
         }))
         
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ [weak self] (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ [weak self] _ in
             let request = Remainder.RemainderData.Request(remainder: self?.remainders[self!.tappedCellIndex!])
             self?.interactor?.removeRemainder(request: request)
             self?.remainders.remove(at: self!.tappedCellIndex!)
@@ -84,36 +111,20 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
         })
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.addGestureRecognizer(longPressGesture)
-        navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: "doc.fill.badge.plus")?
-                                .withTintColor(UIColor.black,
-                                               renderingMode: .alwaysOriginal),
-                            style: .done, target: self, action: #selector(addRemainder)),
-            
-        ]
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        getRemainders()
-    }
-    
-    // MARK: Do something
+    //   MARK: Do something
     func getRemainders() {
         let request = Remainder.RemainderData.Request()
         interactor?.fetchRemainderFile(request: request)
     }
     
-    @objc func addRemainder() {
-        router?.routeToCreateRemander(segue: nil)
-    }
+    //    MARK: - DISPLAY FUNC
     func displayRemainders(viewModel: Remainder.RemainderData.ViewModel) {
         remainders = viewModel.remainders
         tableView.reloadData()
     }
 }
+
+// MARK: - EXTENSION TABLE VIEW FUNC
 
 extension RemainderViewController {
     

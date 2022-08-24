@@ -13,8 +13,8 @@
 import UIKit
 
 protocol DirectoryFileDisplayLogic: AnyObject {
-    func displaySomething(viewModel: DirectoryFile.DirectoryInfo.ViewModel)
-    func displayFiles(viewModel: DirectoryFile.Directory.ViewModel)
+    func displayError(viewModel: DirectoryFile.DirectoryInfo.ViewModel)
+    func displayFileNames(viewModel: DirectoryFile.Directory.ViewModel)
 }
 
 class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLogic {
@@ -22,7 +22,7 @@ class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLo
     var router: (NSObjectProtocol & DirectoryFileRoutingLogic & DirectoryFileDataPassing)?
     private var fileNames: [String] = []
     
-    // MARK: Object lifecycle
+    //  MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -33,7 +33,15 @@ class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLo
         setup()
     }
     
-    // MARK: Setup
+    //  MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getFilesFromFileManeger()
+    }
+    
+    //  MARK: Setup
+    
     private func setup() {
         let viewController = self
         let interactor = DirectoryFileInteractor()
@@ -47,13 +55,9 @@ class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLo
         router.dataStore = interactor
     }
     
-    // MARK: View lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getFilesFromFileManeger()
-    }
     
     // MARK: AddButton Action
+    
     @IBAction func addDirectoryBtnAction(_ sender: Any) {
         showAlerWithTextField()
     }
@@ -63,13 +67,6 @@ class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLo
         interactor?.getFile(request: request)
     }
     
-    func displaySomething(viewModel: DirectoryFile.DirectoryInfo.ViewModel) {
-        if let error = viewModel.error  {
-            showAlert(with: "ERROR", message: error)
-        } else {
-            getFilesFromFileManeger()
-        }
-    }
     
     // MARK: Alerts
     
@@ -93,14 +90,27 @@ class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLo
         present(alert, animated: true)
     }
     
-    func displayFiles(viewModel: DirectoryFile.Directory.ViewModel) {
+    //    MARK: - DISPLAY FUNC
+    
+    func displayFileNames(viewModel: DirectoryFile.Directory.ViewModel) {
         guard let names = viewModel.fileNames else { return }
         fileNames = names
         tableView.reloadData()
     }
     
-//    MARK: TableView Funcs
+    func displayError(viewModel: DirectoryFile.DirectoryInfo.ViewModel) {
+        if let error = viewModel.error  {
+            showAlert(with: "ERROR", message: error)
+        } else {
+            getFilesFromFileManeger()
+        }
+    }
     
+    
+}
+extension DirectoryFileViewController {
+    
+    //    MARK: - TableView Funcs
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         fileNames.count
     }
@@ -111,7 +121,7 @@ class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLo
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DirectoryTableViewCell", for: indexPath) as? DirectoryTableViewCell else { return UITableViewCell() }
-        cell.configure(fileName: fileNames[indexPath.row]) 
+        cell.configure(fileName: fileNames[indexPath.row])
         return cell
     }
     
@@ -120,4 +130,5 @@ class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLo
         interactor?.paaTapedDocumentsName(name: fileNames[indexPath.row])
         router?.routeToRemainder(segue: nil)
     }
+    
 }

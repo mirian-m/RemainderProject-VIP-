@@ -23,13 +23,13 @@ class DirectoryFilePresenter: DirectoryFilePresentationLogic {
     
     func presentErroToString(response: DirectoryFile.DirectoryInfo.Response) {
         let viewModel = DirectoryFile.DirectoryInfo.ViewModel(error: response.error?.localizedDescription)
-        viewController?.displaySomething(viewModel: viewModel)
+        viewController?.displayError(viewModel: viewModel)
     }
     
     func presentFileNames(response: DirectoryFile.Directory.Response) {
         var fileNames = response.objects
         fileNames.removeAll { $0.uppercased() == ".DS_Store".uppercased() }
         let viewModel = DirectoryFile.Directory.ViewModel(fileNames: fileNames)
-        viewController?.displayFiles(viewModel: viewModel)
+        viewController?.displayFileNames(viewModel: viewModel)
     }
 }

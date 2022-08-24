@@ -19,7 +19,7 @@ protocol CreateRemainderPresentationLogic {
 class ModifyRemainderPresenter: CreateRemainderPresentationLogic {
     weak var viewController: CreateRemainderDisplayLogic?
     
-    // MARK: Do something
+    // MARK: Present Func
     
     func presentMessage(response: ModifyRemainder.Info.Response) {
         var message = ""

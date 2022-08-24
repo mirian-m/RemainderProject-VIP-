@@ -25,13 +25,14 @@ protocol ModifyRemainderDataStore {
 class ModifyRemainderInteractor: CreateRemainderBusinessLogic, ModifyRemainderDataStore {
     
     var presenter: CreateRemainderPresentationLogic?
-    var worker: ModifyRemainderWorker?
+    var worker: UpdaterWoker?
     var name: String = ""
     var remainderData: RemainderForm?
+    
     // MARK: Do something
     
     func addRemainder(request: ModifyRemainder.Info.Request) {
-        worker = ModifyRemainderWorker()
+        worker = UpdaterWoker()
         worker?.addReminderNote(in: name, remainder: request.remainder, complition: { [weak self] error in
             let response = ModifyRemainder.Info.Response(error: error)
             self?.presenter?.presentMessage(response: response)
@@ -39,7 +40,7 @@ class ModifyRemainderInteractor: CreateRemainderBusinessLogic, ModifyRemainderDa
     }
     
     func editRemainder(request: ModifyRemainder.Info.Request) {
-        worker = ModifyRemainderWorker()
+        worker = UpdaterWoker()
         worker?.editRemainderNote(in: name, oldRemanderName: remainderData!.title, remainder: request.remainder, complition: { [weak self] error in
             let response = ModifyRemainder.Info.Response(error: error)
             self?.presenter?.presentMessage(response: response)

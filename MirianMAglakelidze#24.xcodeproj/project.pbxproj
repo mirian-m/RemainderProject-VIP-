@@ -34,6 +34,7 @@
 		849C56CB28B61168006DC93D /* ModifyRemainderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C528B61168006DC93D /* ModifyRemainderViewController.swift */; };
 		849C56CC28B61168006DC93D /* ModifyRemainderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C628B61168006DC93D /* ModifyRemainderInteractor.swift */; };
 		849C56D628B64A92006DC93D /* RemainderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56D528B64A92006DC93D /* RemainderForm.swift */; };
+		849C56DF28B68DC5006DC93D /* UpdatingWoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56DE28B68DC4006DC93D /* UpdatingWoker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		849C56C528B61168006DC93D /* ModifyRemainderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderViewController.swift; sourceTree = "<group>"; };
 		849C56C628B61168006DC93D /* ModifyRemainderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderInteractor.swift; sourceTree = "<group>"; };
 		849C56D528B64A92006DC93D /* RemainderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderForm.swift; sourceTree = "<group>"; };
+		849C56DE28B68DC4006DC93D /* UpdatingWoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingWoker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		849C567A28B4F080006DC93D /* MirianMAglakelidze#24 */ = {
 			isa = PBXGroup;
 			children = (
+				849C56DD28B68D88006DC93D /* Wokers */,
 				849C56D428B64A7A006DC93D /* Moduls */,
 				849C56A928B56876006DC93D /* Constants */,
 				849C56A728B5671B006DC93D /* TableViewCells */,
@@ -184,6 +187,14 @@
 				849C56D528B64A92006DC93D /* RemainderForm.swift */,
 			);
 			path = Moduls;
+			sourceTree = "<group>";
+		};
+		849C56DD28B68D88006DC93D /* Wokers */ = {
+			isa = PBXGroup;
+			children = (
+				849C56DE28B68DC4006DC93D /* UpdatingWoker.swift */,
+			);
+			path = Wokers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +288,7 @@
 				849C56B928B5FBFA006DC93D /* RemainderInteractor.swift in Sources */,
 				849C56B828B5FBFA006DC93D /* RemainderViewController.swift in Sources */,
 				849C56CA28B61168006DC93D /* CreateRemainderModels.swift in Sources */,
+				849C56DF28B68DC5006DC93D /* UpdatingWoker.swift in Sources */,
 				849C56B528B5FBFA006DC93D /* RemainderWorker.swift in Sources */,
 				849C56C828B61168006DC93D /* ModifyRemainderWorker.swift in Sources */,
 				849C56CB28B61168006DC93D /* ModifyRemainderViewController.swift in Sources */,

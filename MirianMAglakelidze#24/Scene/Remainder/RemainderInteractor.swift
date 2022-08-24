@@ -25,10 +25,6 @@ protocol RemainderDataStore {
 
 class RemainderInteractor: RemainderBusinessLogic, RemainderDataStore {
     
-    func removeRemainder(request: Remainder.RemainderData.Request) {
-        worker = RemainderWorker()
-        worker?.deleteRemainderNote(in: name, remainderTitle: request.remainder!.title)
-    }
     
     var presenter: RemainderPresentationLogic?
     var worker: RemainderWorker?
@@ -45,8 +41,14 @@ class RemainderInteractor: RemainderBusinessLogic, RemainderDataStore {
         })
     }
 
+    func removeRemainder(request: Remainder.RemainderData.Request) {
+        let worker = UpdaterWoker()
+        worker.deleteRemainderNote(in: name, remainderTitle: request.remainder!.title)
+    }
+
     func editRemainder(request: Remainder.RemainderData.Request) {
         self.remainderData = request.remainder
     }
+    
 
 }
