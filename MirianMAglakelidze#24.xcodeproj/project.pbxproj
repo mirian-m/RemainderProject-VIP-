@@ -9,21 +9,63 @@
 /* Begin PBXBuildFile section */
 		849C567C28B4F080006DC93D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C567B28B4F080006DC93D /* AppDelegate.swift */; };
 		849C567E28B4F080006DC93D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C567D28B4F080006DC93D /* SceneDelegate.swift */; };
-		849C568028B4F080006DC93D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C567F28B4F080006DC93D /* ViewController.swift */; };
 		849C568328B4F080006DC93D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849C568128B4F080006DC93D /* Main.storyboard */; };
 		849C568528B4F08D006DC93D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849C568428B4F08D006DC93D /* Assets.xcassets */; };
 		849C568828B4F08D006DC93D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849C568628B4F08D006DC93D /* LaunchScreen.storyboard */; };
+		849C569828B503DC006DC93D /* DirectoryFilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C569228B503DC006DC93D /* DirectoryFilePresenter.swift */; };
+		849C569928B503DC006DC93D /* DirectoryFileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C569328B503DC006DC93D /* DirectoryFileWorker.swift */; };
+		849C569A28B503DC006DC93D /* DirectoryFileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C569428B503DC006DC93D /* DirectoryFileRouter.swift */; };
+		849C569B28B503DC006DC93D /* DirectoryFileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C569528B503DC006DC93D /* DirectoryFileModels.swift */; };
+		849C569C28B503DC006DC93D /* DirectoryFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C569628B503DC006DC93D /* DirectoryFileViewController.swift */; };
+		849C569D28B503DC006DC93D /* DirectoryFileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C569728B503DC006DC93D /* DirectoryFileInteractor.swift */; };
+		849C56A528B505F5006DC93D /* DirectoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56A428B505F5006DC93D /* DirectoryTableViewCell.swift */; };
+		849C56AB28B56886006DC93D /* Constrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56AA28B56886006DC93D /* Constrants.swift */; };
+		849C56B428B5FBFA006DC93D /* RemainderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56AE28B5FBF9006DC93D /* RemainderPresenter.swift */; };
+		849C56B528B5FBFA006DC93D /* RemainderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56AF28B5FBF9006DC93D /* RemainderWorker.swift */; };
+		849C56B628B5FBFA006DC93D /* RemainderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B028B5FBF9006DC93D /* RemainderRouter.swift */; };
+		849C56B728B5FBFA006DC93D /* RemainderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B128B5FBF9006DC93D /* RemainderModels.swift */; };
+		849C56B828B5FBFA006DC93D /* RemainderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B228B5FBF9006DC93D /* RemainderViewController.swift */; };
+		849C56B928B5FBFA006DC93D /* RemainderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B328B5FBF9006DC93D /* RemainderInteractor.swift */; };
+		849C56BD28B60227006DC93D /* RemaindetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56BC28B60227006DC93D /* RemaindetTableViewCell.swift */; };
+		849C56C728B61168006DC93D /* ModifyRemainderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C128B61168006DC93D /* ModifyRemainderPresenter.swift */; };
+		849C56C828B61168006DC93D /* ModifyRemainderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C228B61168006DC93D /* ModifyRemainderWorker.swift */; };
+		849C56C928B61168006DC93D /* ModifyRemainderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C328B61168006DC93D /* ModifyRemainderRouter.swift */; };
+		849C56CA28B61168006DC93D /* CreateRemainderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C428B61168006DC93D /* CreateRemainderModels.swift */; };
+		849C56CB28B61168006DC93D /* ModifyRemainderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C528B61168006DC93D /* ModifyRemainderViewController.swift */; };
+		849C56CC28B61168006DC93D /* ModifyRemainderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C628B61168006DC93D /* ModifyRemainderInteractor.swift */; };
+		849C56D628B64A92006DC93D /* RemainderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56D528B64A92006DC93D /* RemainderForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		849C567828B4F080006DC93D /* MirianMAglakelidze#24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MirianMAglakelidze#24.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849C567B28B4F080006DC93D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849C567D28B4F080006DC93D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		849C567F28B4F080006DC93D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		849C568228B4F080006DC93D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		849C568428B4F08D006DC93D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		849C568728B4F08D006DC93D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		849C568928B4F08D006DC93D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849C569228B503DC006DC93D /* DirectoryFilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFilePresenter.swift; sourceTree = "<group>"; };
+		849C569328B503DC006DC93D /* DirectoryFileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFileWorker.swift; sourceTree = "<group>"; };
+		849C569428B503DC006DC93D /* DirectoryFileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFileRouter.swift; sourceTree = "<group>"; };
+		849C569528B503DC006DC93D /* DirectoryFileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFileModels.swift; sourceTree = "<group>"; };
+		849C569628B503DC006DC93D /* DirectoryFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFileViewController.swift; sourceTree = "<group>"; };
+		849C569728B503DC006DC93D /* DirectoryFileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFileInteractor.swift; sourceTree = "<group>"; };
+		849C56A428B505F5006DC93D /* DirectoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryTableViewCell.swift; sourceTree = "<group>"; };
+		849C56AA28B56886006DC93D /* Constrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrants.swift; sourceTree = "<group>"; };
+		849C56AE28B5FBF9006DC93D /* RemainderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderPresenter.swift; sourceTree = "<group>"; };
+		849C56AF28B5FBF9006DC93D /* RemainderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderWorker.swift; sourceTree = "<group>"; };
+		849C56B028B5FBF9006DC93D /* RemainderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderRouter.swift; sourceTree = "<group>"; };
+		849C56B128B5FBF9006DC93D /* RemainderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderModels.swift; sourceTree = "<group>"; };
+		849C56B228B5FBF9006DC93D /* RemainderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewController.swift; sourceTree = "<group>"; };
+		849C56B328B5FBF9006DC93D /* RemainderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderInteractor.swift; sourceTree = "<group>"; };
+		849C56BC28B60227006DC93D /* RemaindetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemaindetTableViewCell.swift; sourceTree = "<group>"; };
+		849C56C128B61168006DC93D /* ModifyRemainderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderPresenter.swift; sourceTree = "<group>"; };
+		849C56C228B61168006DC93D /* ModifyRemainderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderWorker.swift; sourceTree = "<group>"; };
+		849C56C328B61168006DC93D /* ModifyRemainderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderRouter.swift; sourceTree = "<group>"; };
+		849C56C428B61168006DC93D /* CreateRemainderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRemainderModels.swift; sourceTree = "<group>"; };
+		849C56C528B61168006DC93D /* ModifyRemainderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderViewController.swift; sourceTree = "<group>"; };
+		849C56C628B61168006DC93D /* ModifyRemainderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderInteractor.swift; sourceTree = "<group>"; };
+		849C56D528B64A92006DC93D /* RemainderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +98,92 @@
 		849C567A28B4F080006DC93D /* MirianMAglakelidze#24 */ = {
 			isa = PBXGroup;
 			children = (
+				849C56D428B64A7A006DC93D /* Moduls */,
+				849C56A928B56876006DC93D /* Constants */,
+				849C56A728B5671B006DC93D /* TableViewCells */,
+				849C569028B503A3006DC93D /* Scene */,
 				849C567B28B4F080006DC93D /* AppDelegate.swift */,
 				849C567D28B4F080006DC93D /* SceneDelegate.swift */,
-				849C567F28B4F080006DC93D /* ViewController.swift */,
 				849C568128B4F080006DC93D /* Main.storyboard */,
 				849C568428B4F08D006DC93D /* Assets.xcassets */,
 				849C568628B4F08D006DC93D /* LaunchScreen.storyboard */,
 				849C568928B4F08D006DC93D /* Info.plist */,
 			);
 			path = "MirianMAglakelidze#24";
+			sourceTree = "<group>";
+		};
+		849C569028B503A3006DC93D /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				849C56C028B61141006DC93D /* ModifyRemainder */,
+				849C56AD28B5FBD3006DC93D /* Remainder */,
+				849C569128B503B7006DC93D /* Directory */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		849C569128B503B7006DC93D /* Directory */ = {
+			isa = PBXGroup;
+			children = (
+				849C569628B503DC006DC93D /* DirectoryFileViewController.swift */,
+				849C569728B503DC006DC93D /* DirectoryFileInteractor.swift */,
+				849C569228B503DC006DC93D /* DirectoryFilePresenter.swift */,
+				849C569328B503DC006DC93D /* DirectoryFileWorker.swift */,
+				849C569428B503DC006DC93D /* DirectoryFileRouter.swift */,
+				849C569528B503DC006DC93D /* DirectoryFileModels.swift */,
+			);
+			path = Directory;
+			sourceTree = "<group>";
+		};
+		849C56A728B5671B006DC93D /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				849C56A428B505F5006DC93D /* DirectoryTableViewCell.swift */,
+				849C56BC28B60227006DC93D /* RemaindetTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		849C56A928B56876006DC93D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				849C56AA28B56886006DC93D /* Constrants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		849C56AD28B5FBD3006DC93D /* Remainder */ = {
+			isa = PBXGroup;
+			children = (
+				849C56B228B5FBF9006DC93D /* RemainderViewController.swift */,
+				849C56B328B5FBF9006DC93D /* RemainderInteractor.swift */,
+				849C56AE28B5FBF9006DC93D /* RemainderPresenter.swift */,
+				849C56AF28B5FBF9006DC93D /* RemainderWorker.swift */,
+				849C56B028B5FBF9006DC93D /* RemainderRouter.swift */,
+				849C56B128B5FBF9006DC93D /* RemainderModels.swift */,
+			);
+			path = Remainder;
+			sourceTree = "<group>";
+		};
+		849C56C028B61141006DC93D /* ModifyRemainder */ = {
+			isa = PBXGroup;
+			children = (
+				849C56C528B61168006DC93D /* ModifyRemainderViewController.swift */,
+				849C56C628B61168006DC93D /* ModifyRemainderInteractor.swift */,
+				849C56C128B61168006DC93D /* ModifyRemainderPresenter.swift */,
+				849C56C228B61168006DC93D /* ModifyRemainderWorker.swift */,
+				849C56C328B61168006DC93D /* ModifyRemainderRouter.swift */,
+				849C56C428B61168006DC93D /* CreateRemainderModels.swift */,
+			);
+			path = ModifyRemainder;
+			sourceTree = "<group>";
+		};
+		849C56D428B64A7A006DC93D /* Moduls */ = {
+			isa = PBXGroup;
+			children = (
+				849C56D528B64A92006DC93D /* RemainderForm.swift */,
+			);
+			path = Moduls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +256,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849C568028B4F080006DC93D /* ViewController.swift in Sources */,
+				849C56D628B64A92006DC93D /* RemainderForm.swift in Sources */,
+				849C56B628B5FBFA006DC93D /* RemainderRouter.swift in Sources */,
+				849C569C28B503DC006DC93D /* DirectoryFileViewController.swift in Sources */,
+				849C569B28B503DC006DC93D /* DirectoryFileModels.swift in Sources */,
+				849C569928B503DC006DC93D /* DirectoryFileWorker.swift in Sources */,
+				849C56A528B505F5006DC93D /* DirectoryTableViewCell.swift in Sources */,
+				849C56BD28B60227006DC93D /* RemaindetTableViewCell.swift in Sources */,
+				849C569828B503DC006DC93D /* DirectoryFilePresenter.swift in Sources */,
+				849C569A28B503DC006DC93D /* DirectoryFileRouter.swift in Sources */,
+				849C56B728B5FBFA006DC93D /* RemainderModels.swift in Sources */,
+				849C56C928B61168006DC93D /* ModifyRemainderRouter.swift in Sources */,
+				849C56B428B5FBFA006DC93D /* RemainderPresenter.swift in Sources */,
 				849C567C28B4F080006DC93D /* AppDelegate.swift in Sources */,
 				849C567E28B4F080006DC93D /* SceneDelegate.swift in Sources */,
+				849C569D28B503DC006DC93D /* DirectoryFileInteractor.swift in Sources */,
+				849C56AB28B56886006DC93D /* Constrants.swift in Sources */,
+				849C56CC28B61168006DC93D /* ModifyRemainderInteractor.swift in Sources */,
+				849C56C728B61168006DC93D /* ModifyRemainderPresenter.swift in Sources */,
+				849C56B928B5FBFA006DC93D /* RemainderInteractor.swift in Sources */,
+				849C56B828B5FBFA006DC93D /* RemainderViewController.swift in Sources */,
+				849C56CA28B61168006DC93D /* CreateRemainderModels.swift in Sources */,
+				849C56B528B5FBFA006DC93D /* RemainderWorker.swift in Sources */,
+				849C56C828B61168006DC93D /* ModifyRemainderWorker.swift in Sources */,
+				849C56CB28B61168006DC93D /* ModifyRemainderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
