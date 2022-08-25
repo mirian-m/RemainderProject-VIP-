@@ -46,5 +46,5 @@ class ModifyRemainderInteractor: CreateRemainderBusinessLogic, ModifyRemainderDa
             self?.presenter?.presentMessage(response: response)
         })
     }
-
+    
 }

@@ -13,16 +13,4 @@
 import UIKit
 
 class ModifyRemainderWorker {
-    func addReminderNote(in directory: String, remainder: RemainderForm, complition: @escaping (Error?) -> Void) {
-        let remainderUrl = "\(String(describing: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path))/\(directory)"
-        guard var url = URL(string: remainderUrl) else { return }
-        url.appendPathComponent("\(remainder.title).txt")
-        do {
-            let data = try JSONEncoder().encode(remainder)
-            FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil )
-            complition(nil)
-        } catch {
-            complition(error)
-        }
-    }
 }

@@ -164,12 +164,6 @@
                             </stackView>
                             <datePicker contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="6R4-fq-VoM">
                                 <rect key="frame" x="20" y="180" width="374" height="216"/>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="685483200">
-                                    <!--2022-09-21 20:00:00 +0000-->
-                                </date>
-                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167508800">
-                                    <!--2037-12-30 20:00:00 +0000-->
-                                </date>
                                 <locale key="locale" localeIdentifier="ka_GE"/>
                             </datePicker>
                         </subviews>

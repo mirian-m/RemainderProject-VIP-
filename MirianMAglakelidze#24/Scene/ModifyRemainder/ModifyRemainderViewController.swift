@@ -19,11 +19,7 @@ protocol CreateRemainderDisplayLogic: class {
 class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLogic {
     @IBOutlet weak var remainderTitle: UITextField!
     @IBOutlet weak var remainderInfo: UITextField!
-    @IBOutlet weak var dataPicker: UIDatePicker! {
-        didSet {
-            dataPicker.minimumDate = Date()
-        }
-    }
+    @IBOutlet weak var dataPicker: UIDatePicker!
     
     var interactor: CreateRemainderBusinessLogic?
     var router: (NSObjectProtocol & CreateRemainderRoutingLogic & CreateRemainderDataPassing)?
@@ -80,15 +76,28 @@ class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLog
     //    MARK: - @IBOutlet ACTIONS
     
     @objc func addRemainder() {
+        if checkFields() {
+            showAler(message: "Pleas Fill all Fields")
+            return
+        }
         let remander = RemainderForm(title: remainderTitle.text ?? "", info: remainderInfo.text ?? "", date: dataPicker.date)
         let request = ModifyRemainder.Info.Request(remainder: remander)
         interactor?.addRemainder(request: request)
     }
     
     @objc func editRemainder() {
+        if checkFields() {
+            showAler(message: "Pleas Fill all Fields")
+            return
+        }
         let remander = RemainderForm(title: remainderTitle.text ?? "", info: remainderInfo.text ?? "", date: dataPicker.date)
         let request = ModifyRemainder.Info.Request(remainder: remander)
         interactor?.editRemainder(request: request)
+        
+    }
+    
+    func checkFields() -> Bool {
+        return remainderInfo.text == "" || remainderTitle.text == ""
     }
     
     //    MARK: - DISPLAY FUNCS

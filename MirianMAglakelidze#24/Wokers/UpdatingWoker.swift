@@ -37,5 +37,14 @@ class UpdaterWoker {
             complition(error)
         }
     }
+    
+    func checkRemainderData(remainder: RemainderForm, complition: @escaping (String?) -> Void ) {
+        if remainder.info.isEmpty || remainder.title.isEmpty {
+            complition("Please Fill All fields")
+        } else {
+            complition(nil)
+        }
+    }
+
 }
 
