@@ -47,17 +47,14 @@ class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLog
             return
         }
         self.remainderTitle.text = data.title
-        self.remainderInfo.text = data.info
+        self.remainderInfo.text = data.body
         self.dataPicker.date = data.date
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(editRemainder))
         ]
         
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super .viewWillDisappear(true)
-    }
-    
+
     // MARK: Setup
     
     private func setup() {
@@ -77,20 +74,25 @@ class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLog
     
     @objc func addRemainder() {
         if checkFields() {
-            showAler(message: "Pleas Fill all Fields")
+            showAler(title: AlertTitle.error, message: "Pleas Fill all Fields")
             return
+        } else {
+            if dataPicker.date < Date() {
+                showAler(title: AlertTitle.error, message: "Pleas Set Correct Date")
+            }
         }
-        let remander = RemainderForm(title: remainderTitle.text ?? "", info: remainderInfo.text ?? "", date: dataPicker.date)
+        
+        let remander = ReminderForm(title: remainderTitle.text ?? "", body: remainderInfo.text ?? "", date: dataPicker.date)
         let request = ModifyRemainder.Info.Request(remainder: remander)
         interactor?.addRemainder(request: request)
     }
     
     @objc func editRemainder() {
         if checkFields() {
-            showAler(message: "Pleas Fill all Fields")
+            showAler(title: AlertTitle.error, message: "Pleas Fill all Fields")
             return
         }
-        let remander = RemainderForm(title: remainderTitle.text ?? "", info: remainderInfo.text ?? "", date: dataPicker.date)
+        let remander = ReminderForm(title: remainderTitle.text ?? "", body: remainderInfo.text ?? "", date: dataPicker.date)
         let request = ModifyRemainder.Info.Request(remainder: remander)
         interactor?.editRemainder(request: request)
         
@@ -103,15 +105,19 @@ class ModifyRemainderViewController: UIViewController, CreateRemainderDisplayLog
     //    MARK: - DISPLAY FUNCS
     
     func displayMessage(viewModel: ModifyRemainder.Info.ViewModel) {
-        showAler(message: viewModel.massege)
+        showAler(title: AlertTitle.success, message: viewModel.massege)
     }
     
     //    MARK: - ALERT
-    func showAler(message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+    func showAler(title: AlertTitle, message: String) {
+        let alert = UIAlertController(title: title.rawValue, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .cancel) {[weak self] _ in
             self?.remainderTitle.text = ""
             self?.remainderInfo.text = ""
+            self?.dataPicker.date = Date()
+            if title == .success {
+                self?.router?.routeToRemainderPage(segue: nil)
+            }
         }
         
         alert.addAction(action)

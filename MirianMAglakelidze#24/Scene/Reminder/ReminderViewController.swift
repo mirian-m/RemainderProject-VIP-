@@ -12,19 +12,20 @@
 
 import UIKit
 
-protocol RemainderDisplayLogic: class {
-    func displayRemainders(viewModel: Remainder.RemainderData.ViewModel)
+protocol ReminderDisplayLogic: class {
+    func displayRemainders(viewModel: Reminder.ReminderData.ViewModel)
 }
 
-class RemainderViewController: UITableViewController, RemainderDisplayLogic {
-    var interactor: RemainderBusinessLogic?
-    var router: (NSObjectProtocol & RemainderRoutingLogic & RemainderDataPassing)?
+class ReminderViewController: UITableViewController, ReminderDisplayLogic {
+    var interactor: ReminderBusinessLogic?
+    var router: (NSObjectProtocol & ReminderRoutingLogic & ReminderDataPassing)?
     private lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
     
-    private var remainders: [RemainderForm] = []
+    private var remainders: [ReminderForm] = []
     private var  tappedCellIndex: Int?
     
     // MARK: Object lifecycle
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -39,6 +40,7 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Reminder"
         tableView.addGestureRecognizer(longPressGesture)
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(systemName: "doc.fill.badge.plus")?
@@ -51,6 +53,7 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = false
         getRemainders()
     }
     
@@ -58,9 +61,9 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
     
     private func setup() {
         let viewController = self
-        let interactor = RemainderInteractor()
-        let presenter = RemainderPresenter()
-        let router = RemainderRouter()
+        let interactor = ReminderInteractor()
+        let presenter = ReminderPresenter()
+        let router = ReminderRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -72,8 +75,8 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
     //    MARK:- @IBACTIONS
     
     @objc func addRemainder() {
-        interactor?.editRemainder(request: Remainder.RemainderData.Request())
-        router?.routeToCreateRemander(segue: nil)
+        interactor?.editRemainder(request: Reminder.ReminderData.Request())
+        router?.routeToCreateReminder(segue: nil)
     }
     
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
@@ -90,15 +93,19 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
     
     func showActionSheet() {
         let alert = UIAlertController(title: "", message: "Please Select an Option", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Set Remainder", style: .default, handler: { [weak self] _ in
+            let request = Reminder.Set.Request(reminder: (self?.remainders[self!.tappedCellIndex!])!)
+            self?.register(notification: request.reminder, repeats: false, userInfo: [:])
+        }))
         
         alert.addAction(UIAlertAction(title: "Edit", style: .default , handler:{ [weak self] _ in
-            let request = Remainder.RemainderData.Request(remainder: self?.remainders[self!.tappedCellIndex!])
+            let request = Reminder.ReminderData.Request(remainder: self?.remainders[self!.tappedCellIndex!])
             self?.interactor?.editRemainder(request: request)
-            self?.router?.routeToCreateRemander(segue: nil)
+            self?.router?.routeToCreateReminder(segue: nil)
         }))
         
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ [weak self] _ in
-            let request = Remainder.RemainderData.Request(remainder: self?.remainders[self!.tappedCellIndex!])
+            let request = Reminder.ReminderData.Request(remainder: self?.remainders[self!.tappedCellIndex!])
             self?.interactor?.removeRemainder(request: request)
             self?.remainders.remove(at: self!.tappedCellIndex!)
             self?.tableView.reloadData()
@@ -113,20 +120,33 @@ class RemainderViewController: UITableViewController, RemainderDisplayLogic {
     
     //   MARK: Do something
     func getRemainders() {
-        let request = Remainder.RemainderData.Request()
+        let request = Reminder.ReminderData.Request()
         interactor?.fetchRemainderFile(request: request)
     }
     
     //    MARK: - DISPLAY FUNC
-    func displayRemainders(viewModel: Remainder.RemainderData.ViewModel) {
+    func displayRemainders(viewModel: Reminder.ReminderData.ViewModel) {
         remainders = viewModel.remainders
         tableView.reloadData()
+    }
+    
+    func register(notification: ReminderForm, repeats: Bool, userInfo: [AnyHashable : Any]) {
+        let userNotification = UNUserNotificationCenter.current()
+        //Get Permission status
+        userNotification.requestAuthorization(options: [.badge,.alert]) { granted, error in
+            if granted {
+                DispatchQueue.main.async { [weak self] in
+                    let request = Reminder.Set.Request(reminder: notification)
+                    self?.interactor?.setRemainder(request: request)
+                }
+            }
+        }
     }
 }
 
 // MARK: - EXTENSION TABLE VIEW FUNC
 
-extension RemainderViewController {
+extension ReminderViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         remainders.count
@@ -144,8 +164,5 @@ extension RemainderViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let request = Remainder.RemainderData.Request(remainder: remainders[indexPath.row])
-        interactor?.editRemainder(request: request)
-        router?.routeToCreateRemander(segue: nil)
     }
 }

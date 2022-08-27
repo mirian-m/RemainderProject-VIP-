@@ -24,12 +24,9 @@ protocol DirectoryFileDataStore {
 
 class DirectoryFileInteractor: DirectoryFileBusinessLogic, DirectoryFileDataStore {
     
-    
     var presenter: DirectoryFilePresentationLogic?
     var worker: DirectoryFileWorker?
     var tappedFileName: String = ""
-    
-    // MARK: Do 
     
     func addDirectory(request: DirectoryFile.DirectoryInfo.Request) {
         worker = DirectoryFileWorker()
@@ -50,5 +47,4 @@ class DirectoryFileInteractor: DirectoryFileBusinessLogic, DirectoryFileDataStor
     func paaTapedDocumentsName(name: String) {
         tappedFileName = name
     }
-
 }

@@ -13,38 +13,32 @@
 import UIKit
 
 @objc protocol CreateRemainderRoutingLogic {
-  func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToRemainderPage(segue: UIStoryboardSegue?)
 }
 
 protocol CreateRemainderDataPassing {
-  var dataStore: ModifyRemainderDataStore? { get }
+    var dataStore: ModifyRemainderDataStore? { get }
 }
 
 class ModifyRemainderRouter: NSObject, CreateRemainderRoutingLogic, CreateRemainderDataPassing {
-  weak var viewController: ModifyRemainderViewController?
-  var dataStore: ModifyRemainderDataStore?
-  
-  // MARK: Routing
-  
-  func routeToSomewhere(segue: UIStoryboardSegue?) {
+    weak var viewController: ModifyRemainderViewController?
+    var dataStore: ModifyRemainderDataStore?
     
-//      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//      let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-//      var destinationDS = destinationVC.router!.dataStore!
-//      passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//      navigateToSomewhere(source: viewController!, destination: destinationVC)
+    // MARK: Routing
+    
+    func routeToRemainderPage(segue: UIStoryboardSegue?) {
+        navigateToRemainderPage(source: viewController!, destination: UIViewController())
     }
-  }
+}
 
-  // MARK: Navigation
-  
-//  func navigateToSomewhere(source: CreateRemainderViewController, destination: SomewhereViewController)
-//  {
-//    source.show(destination, sender: nil)
-//  }
-  
-  // MARK: Passing data
-  
+// MARK: Navigation
+
+func navigateToRemainderPage(source: ModifyRemainderViewController, destination: UIViewController) {
+    source.navigationController?.popViewController(animated: true)
+}
+
+// MARK: Passing data
+
 //  func passDataToSomewhere(source: CreateRemainderDataStore, destination: inout SomewhereDataStore)
 //  {
 //    destination.name = source.name

@@ -19,7 +19,7 @@ protocol CreateRemainderBusinessLogic {
 
 protocol ModifyRemainderDataStore {
     var name: String { get set }
-    var remainderData: RemainderForm? { get set }
+    var remainderData: ReminderForm? { get set }
 }
 
 class ModifyRemainderInteractor: CreateRemainderBusinessLogic, ModifyRemainderDataStore {
@@ -27,7 +27,7 @@ class ModifyRemainderInteractor: CreateRemainderBusinessLogic, ModifyRemainderDa
     var presenter: CreateRemainderPresentationLogic?
     var worker: UpdaterWoker?
     var name: String = ""
-    var remainderData: RemainderForm?
+    var remainderData: ReminderForm?
     
     // MARK: Do something
     

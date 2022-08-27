@@ -37,9 +37,14 @@ class DirectoryFileViewController: UITableViewController, DirectoryFileDisplayLo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Directory"
         getFilesFromFileManeger()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
+        navigationItem.setHidesBackButton(true, animated: true)
+    }
     //  MARK: Setup
     
     private func setup() {

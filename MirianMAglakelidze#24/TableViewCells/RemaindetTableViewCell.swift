@@ -9,6 +9,12 @@ import UIKit
 
 class RemaindetTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var backgrounView: UIView! {
+        didSet {
+            backgrounView.layer.cornerRadius = 10
+            backgrounView?.backgroundColor = .lightGray
+        }
+    }
     @IBOutlet weak var remainderTitle: UILabel!
     @IBOutlet weak var remainderInfoLb: UILabel!
     @IBOutlet weak var date: UILabel!
@@ -22,10 +28,10 @@ class RemaindetTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    func configure(remainderData: RemainderForm) {
+    
+    func configure(remainderData: ReminderForm) {
         self.remainderTitle.text = remainderData.title.uppercased()
-        self.remainderInfoLb.text = remainderData.info
-        self.date.text = "\(remainderData.date)"
+        self.remainderInfoLb.text = remainderData.body
+        self.date.text = String(describing: remainderData.date.getFormattedDate(format: FormatsForDate.dateFormat))
     }
 }

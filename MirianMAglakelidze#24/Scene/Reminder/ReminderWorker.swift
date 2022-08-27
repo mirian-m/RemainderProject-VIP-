@@ -12,12 +12,17 @@
 
 import UIKit
 
-class RemainderWorker {
-
-    func getRemaindersFile(directory: String,complition: @escaping ([Data]) -> Void ) {
+class ReminderWorker {
+    
+    //    MARK: - Gets remainder files from File maneger and return it by @escaping clouser
+    
+    func getRemaindersFile(directory: String, complition: @escaping ([Data]) -> Void ) {
         var remaindersData: [Data] = []
+        
         let createRemaindeFolderAddress = "\(String(describing: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path))/\(directory)"
+        
         guard let fileManegeUrl = URL(string: createRemaindeFolderAddress) else { return }
+        
         let urlArray = try! FileManager.default.contentsOfDirectory(at: fileManegeUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
         for fileUrl in urlArray {
             do {

@@ -23,13 +23,16 @@ class ModifyRemainderPresenter: CreateRemainderPresentationLogic {
     
     func presentMessage(response: ModifyRemainder.Info.Response) {
         var message = ""
+        var title: AlertTitle?
         if response.error == nil {
+            title = .success
             message = "Remainder successfully added"
         } else {
+            title = .error
             message = response.error!.localizedDescription
         }
         
-        let viewModel = ModifyRemainder.Info.ViewModel(massege: message)
+        let viewModel = ModifyRemainder.Info.ViewModel(title: title!, massege: message)
         viewController?.displayMessage(viewModel: viewModel)
     }
 }

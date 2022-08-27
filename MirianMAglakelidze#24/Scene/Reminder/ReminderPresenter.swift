@@ -12,25 +12,26 @@
 
 import UIKit
 
-protocol RemainderPresentationLogic {
-    func presentRemainders(response: Remainder.RemainderData.Response)
+protocol ReminderPresentationLogic {
+    func presentRemainders(response: Reminder.ReminderData.Response)
 }
 
-class RemainderPresenter: RemainderPresentationLogic
+class ReminderPresenter: ReminderPresentationLogic
 {
-    weak var viewController: RemainderDisplayLogic?
+    weak var viewController: ReminderDisplayLogic?
     
-    func presentRemainders(response: Remainder.RemainderData.Response) {
-        var remainderArray: [RemainderForm] = []
+    func presentRemainders(response: Reminder.ReminderData.Response) {
+        var remainderArray: [ReminderForm] = []
         response.objects!.forEach({ data in
             do {
-                let remainder = try JSONDecoder().decode(RemainderForm.self, from: data)
+                let remainder = try JSONDecoder().decode(ReminderForm.self, from: data)
                 remainderArray.append(remainder)
             } catch {
                 print(error)
             }
         })
-        let viewModel = Remainder.RemainderData.ViewModel(remainders: remainderArray)
+        
+        let viewModel = Reminder.ReminderData.ViewModel(remainders: remainderArray)
         viewController?.displayRemainders(viewModel: viewModel)
     }
 }

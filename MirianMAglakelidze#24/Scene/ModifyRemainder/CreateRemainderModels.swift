@@ -12,18 +12,17 @@
 
 import UIKit
 
-enum ModifyRemainder
-{
+enum ModifyRemainder {
     
-    enum Info
-    {
+    enum Info {
         struct Request{
-            var remainder: RemainderForm
+            var remainder: ReminderForm
         }
         struct Response{
             var error: Error?
         }
-        struct ViewModel{
+        struct ViewModel {
+            var title: AlertTitle
             var massege: String
         }
     }

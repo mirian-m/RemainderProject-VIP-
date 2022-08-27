@@ -12,21 +12,22 @@
 
 import UIKit
 
-@objc protocol RemainderRoutingLogic {
-    func routeToCreateRemander(segue: UIStoryboardSegue?)
+@objc protocol ReminderRoutingLogic {
+    func routeToCreateReminder(segue: UIStoryboardSegue?)
 }
 
-protocol RemainderDataPassing {
-    var dataStore: RemainderDataStore? { get }
+protocol ReminderDataPassing {
+    var dataStore: ReminderDataStore? { get }
 }
 
-class RemainderRouter: NSObject, RemainderRoutingLogic, RemainderDataPassing {
+class ReminderRouter: NSObject, ReminderRoutingLogic, ReminderDataPassing {
     
-    weak var viewController: RemainderViewController?
-    var dataStore: RemainderDataStore?
+    weak var viewController: ReminderViewController?
+    var dataStore: ReminderDataStore?
     
     // MARK: Routing
-    func routeToCreateRemander(segue: UIStoryboardSegue?) {
+    func routeToCreateReminder(segue: UIStoryboardSegue?) {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "CreateRemainderViewController") as? ModifyRemainderViewController else { return }
         var destinationDS = destinationVC.router!.dataStore!
@@ -35,13 +36,13 @@ class RemainderRouter: NSObject, RemainderRoutingLogic, RemainderDataPassing {
     }
     
     //   MARK: Navigation
-    func navigateToSomewhere(source: RemainderViewController, destination: UIViewController) {
+    func navigateToSomewhere(source: ReminderViewController, destination: UIViewController) {
         source.show(destination, sender: nil)
     }
     
     //   MARK: Passing data
-      func passDataToSomewhere(source: RemainderDataStore, destination: inout ModifyRemainderDataStore) {
+    func passDataToSomewhere(source: ReminderDataStore, destination: inout ModifyRemainderDataStore) {
         destination.name = source.name
         destination.remainderData = source.remainderData
-      }
+    }
 }

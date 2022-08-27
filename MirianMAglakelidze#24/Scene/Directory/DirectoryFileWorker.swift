@@ -13,12 +13,13 @@
 import UIKit
 
 class DirectoryFileWorker {
+    //    MARK: Add directory
     
     func addDirectoryToFileManager(with name: String, complition: @escaping (Error?) -> Void) {
-        var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        url!.appendPathComponent(name)
+        guard var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        url.appendPathComponent(name)
         do {
-            try FileManager.default.createDirectory(at: url!, withIntermediateDirectories: true)
+            try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
             complition(nil)
         } catch {
             complition(error)

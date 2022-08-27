@@ -28,9 +28,9 @@ class DirectoryFileRouter: NSObject, DirectoryFileRoutingLogic, DirectoryFileDat
     func routeToRemainder(segue: UIStoryboardSegue?) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "RemainderViewController") as? RemainderViewController else { return }
+        guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "RemainderViewController") as? ReminderViewController else { return }
         var destinationDS = destinationVC.router!.dataStore!
-        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+        passDataToReminder(source: dataStore!, destination: &destinationDS)
         navigateToRemainder(source: viewController!, destination: destinationVC)
     }
     
@@ -41,7 +41,7 @@ class DirectoryFileRouter: NSObject, DirectoryFileRoutingLogic, DirectoryFileDat
     
     //   MARK: Passing data
     
-    func passDataToSomewhere(source: DirectoryFileDataStore, destination: inout RemainderDataStore) {
+    func passDataToReminder(source: DirectoryFileDataStore, destination: inout ReminderDataStore) {
         destination.name = source.tappedFileName
     }
 }

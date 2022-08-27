@@ -18,8 +18,9 @@ class UpdaterWoker {
         }
     }
 
-    func addReminderNote(in directory: String, remainder: RemainderForm, complition: @escaping (Error?) -> Void) {
-        let remainderUrl = "\(String(describing: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path))/\(directory)"
+    func addReminderNote(in directory: String, remainder: ReminderForm, complition: @escaping (Error?) -> Void) {
+        let remainderUrl = "\(String(describing: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path))/\(String(describing: directory))"
+
         guard var url = URL(string: remainderUrl) else { return }
         url.appendPathComponent("\(remainder.title).txt")
         do {
@@ -31,15 +32,15 @@ class UpdaterWoker {
         }
     }
 
-    func editRemainderNote(in directory: String, oldRemanderName: String, remainder: RemainderForm, complition: @escaping (Error?) -> Void) {
+    func editRemainderNote(in directory: String, oldRemanderName: String, remainder: ReminderForm, complition: @escaping (Error?) -> Void) {
         deleteRemainderNote(in: directory, remainderTitle: oldRemanderName)
         addReminderNote(in: directory, remainder: remainder) { error in
             complition(error)
         }
     }
     
-    func checkRemainderData(remainder: RemainderForm, complition: @escaping (String?) -> Void ) {
-        if remainder.info.isEmpty || remainder.title.isEmpty {
+    func checkRemainderData(remainder: ReminderForm, complition: @escaping (String?) -> Void ) {
+        if remainder.body.isEmpty || remainder.title.isEmpty {
             complition("Please Fill All fields")
         } else {
             complition(nil)

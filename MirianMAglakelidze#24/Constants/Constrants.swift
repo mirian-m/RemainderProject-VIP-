@@ -12,3 +12,7 @@ struct TableViewConstatns {
     static var heightForRow: CGFloat = 50
     static var remainderTableVieCellHeight: CGFloat = 100
 }
+
+struct FormatsForDate {
+    static let dateFormat = "yyyy-MM-dd HH:mm:ss"
+}

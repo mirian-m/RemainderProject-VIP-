@@ -20,12 +20,12 @@
 		849C569D28B503DC006DC93D /* DirectoryFileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C569728B503DC006DC93D /* DirectoryFileInteractor.swift */; };
 		849C56A528B505F5006DC93D /* DirectoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56A428B505F5006DC93D /* DirectoryTableViewCell.swift */; };
 		849C56AB28B56886006DC93D /* Constrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56AA28B56886006DC93D /* Constrants.swift */; };
-		849C56B428B5FBFA006DC93D /* RemainderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56AE28B5FBF9006DC93D /* RemainderPresenter.swift */; };
-		849C56B528B5FBFA006DC93D /* RemainderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56AF28B5FBF9006DC93D /* RemainderWorker.swift */; };
-		849C56B628B5FBFA006DC93D /* RemainderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B028B5FBF9006DC93D /* RemainderRouter.swift */; };
+		849C56B428B5FBFA006DC93D /* ReminderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56AE28B5FBF9006DC93D /* ReminderPresenter.swift */; };
+		849C56B528B5FBFA006DC93D /* ReminderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56AF28B5FBF9006DC93D /* ReminderWorker.swift */; };
+		849C56B628B5FBFA006DC93D /* ReminderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B028B5FBF9006DC93D /* ReminderRouter.swift */; };
 		849C56B728B5FBFA006DC93D /* RemainderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B128B5FBF9006DC93D /* RemainderModels.swift */; };
-		849C56B828B5FBFA006DC93D /* RemainderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B228B5FBF9006DC93D /* RemainderViewController.swift */; };
-		849C56B928B5FBFA006DC93D /* RemainderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B328B5FBF9006DC93D /* RemainderInteractor.swift */; };
+		849C56B828B5FBFA006DC93D /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B228B5FBF9006DC93D /* ReminderViewController.swift */; };
+		849C56B928B5FBFA006DC93D /* ReminderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56B328B5FBF9006DC93D /* ReminderInteractor.swift */; };
 		849C56BD28B60227006DC93D /* RemaindetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56BC28B60227006DC93D /* RemaindetTableViewCell.swift */; };
 		849C56C728B61168006DC93D /* ModifyRemainderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C128B61168006DC93D /* ModifyRemainderPresenter.swift */; };
 		849C56C828B61168006DC93D /* ModifyRemainderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C228B61168006DC93D /* ModifyRemainderWorker.swift */; };
@@ -33,8 +33,12 @@
 		849C56CA28B61168006DC93D /* CreateRemainderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C428B61168006DC93D /* CreateRemainderModels.swift */; };
 		849C56CB28B61168006DC93D /* ModifyRemainderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C528B61168006DC93D /* ModifyRemainderViewController.swift */; };
 		849C56CC28B61168006DC93D /* ModifyRemainderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56C628B61168006DC93D /* ModifyRemainderInteractor.swift */; };
-		849C56D628B64A92006DC93D /* RemainderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56D528B64A92006DC93D /* RemainderForm.swift */; };
+		849C56D628B64A92006DC93D /* ReminderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56D528B64A92006DC93D /* ReminderForm.swift */; };
 		849C56DF28B68DC5006DC93D /* UpdatingWoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C56DE28B68DC4006DC93D /* UpdatingWoker.swift */; };
+		84C37FB528BA020C0093A2F6 /* NotificatinManegerWoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C37FB428BA020C0093A2F6 /* NotificatinManegerWoker.swift */; };
+		84C37FBF28BA17440093A2F6 /* Aler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C37FBE28BA17440093A2F6 /* Aler.swift */; };
+		84C37FCA28BA29260093A2F6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C37FC928BA29260093A2F6 /* Extension.swift */; };
+		84C37FCE28BA419C0093A2F6 /* ReminderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C37FCD28BA419C0093A2F6 /* ReminderDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,12 +57,12 @@
 		849C569728B503DC006DC93D /* DirectoryFileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFileInteractor.swift; sourceTree = "<group>"; };
 		849C56A428B505F5006DC93D /* DirectoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryTableViewCell.swift; sourceTree = "<group>"; };
 		849C56AA28B56886006DC93D /* Constrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrants.swift; sourceTree = "<group>"; };
-		849C56AE28B5FBF9006DC93D /* RemainderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderPresenter.swift; sourceTree = "<group>"; };
-		849C56AF28B5FBF9006DC93D /* RemainderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderWorker.swift; sourceTree = "<group>"; };
-		849C56B028B5FBF9006DC93D /* RemainderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderRouter.swift; sourceTree = "<group>"; };
+		849C56AE28B5FBF9006DC93D /* ReminderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPresenter.swift; sourceTree = "<group>"; };
+		849C56AF28B5FBF9006DC93D /* ReminderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderWorker.swift; sourceTree = "<group>"; };
+		849C56B028B5FBF9006DC93D /* ReminderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRouter.swift; sourceTree = "<group>"; };
 		849C56B128B5FBF9006DC93D /* RemainderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderModels.swift; sourceTree = "<group>"; };
-		849C56B228B5FBF9006DC93D /* RemainderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewController.swift; sourceTree = "<group>"; };
-		849C56B328B5FBF9006DC93D /* RemainderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderInteractor.swift; sourceTree = "<group>"; };
+		849C56B228B5FBF9006DC93D /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		849C56B328B5FBF9006DC93D /* ReminderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderInteractor.swift; sourceTree = "<group>"; };
 		849C56BC28B60227006DC93D /* RemaindetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemaindetTableViewCell.swift; sourceTree = "<group>"; };
 		849C56C128B61168006DC93D /* ModifyRemainderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderPresenter.swift; sourceTree = "<group>"; };
 		849C56C228B61168006DC93D /* ModifyRemainderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderWorker.swift; sourceTree = "<group>"; };
@@ -66,8 +70,13 @@
 		849C56C428B61168006DC93D /* CreateRemainderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRemainderModels.swift; sourceTree = "<group>"; };
 		849C56C528B61168006DC93D /* ModifyRemainderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderViewController.swift; sourceTree = "<group>"; };
 		849C56C628B61168006DC93D /* ModifyRemainderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRemainderInteractor.swift; sourceTree = "<group>"; };
-		849C56D528B64A92006DC93D /* RemainderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderForm.swift; sourceTree = "<group>"; };
+		849C56D528B64A92006DC93D /* ReminderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderForm.swift; sourceTree = "<group>"; };
 		849C56DE28B68DC4006DC93D /* UpdatingWoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingWoker.swift; sourceTree = "<group>"; };
+		84C37FB428BA020C0093A2F6 /* NotificatinManegerWoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatinManegerWoker.swift; sourceTree = "<group>"; };
+		84C37FB728BA06600093A2F6 /* MirianMAglakelidze#24.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MirianMAglakelidze#24.entitlements"; sourceTree = "<group>"; };
+		84C37FBE28BA17440093A2F6 /* Aler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aler.swift; sourceTree = "<group>"; };
+		84C37FC928BA29260093A2F6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		84C37FCD28BA419C0093A2F6 /* ReminderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +109,8 @@
 		849C567A28B4F080006DC93D /* MirianMAglakelidze#24 */ = {
 			isa = PBXGroup;
 			children = (
+				84C37FD228BA5B010093A2F6 /* ViewControllers */,
+				84C37FC828BA290F0093A2F6 /* Extension */,
 				849C56DD28B68D88006DC93D /* Wokers */,
 				849C56D428B64A7A006DC93D /* Moduls */,
 				849C56A928B56876006DC93D /* Constants */,
@@ -111,6 +122,7 @@
 				849C568428B4F08D006DC93D /* Assets.xcassets */,
 				849C568628B4F08D006DC93D /* LaunchScreen.storyboard */,
 				849C568928B4F08D006DC93D /* Info.plist */,
+				84C37FB728BA06600093A2F6 /* MirianMAglakelidze#24.entitlements */,
 			);
 			path = "MirianMAglakelidze#24";
 			sourceTree = "<group>";
@@ -119,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				849C56C028B61141006DC93D /* ModifyRemainder */,
-				849C56AD28B5FBD3006DC93D /* Remainder */,
+				849C56AD28B5FBD3006DC93D /* Reminder */,
 				849C569128B503B7006DC93D /* Directory */,
 			);
 			path = Scene;
@@ -155,17 +167,17 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		849C56AD28B5FBD3006DC93D /* Remainder */ = {
+		849C56AD28B5FBD3006DC93D /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				849C56B228B5FBF9006DC93D /* RemainderViewController.swift */,
-				849C56B328B5FBF9006DC93D /* RemainderInteractor.swift */,
-				849C56AE28B5FBF9006DC93D /* RemainderPresenter.swift */,
-				849C56AF28B5FBF9006DC93D /* RemainderWorker.swift */,
-				849C56B028B5FBF9006DC93D /* RemainderRouter.swift */,
+				849C56B228B5FBF9006DC93D /* ReminderViewController.swift */,
+				849C56B328B5FBF9006DC93D /* ReminderInteractor.swift */,
+				849C56AE28B5FBF9006DC93D /* ReminderPresenter.swift */,
+				849C56AF28B5FBF9006DC93D /* ReminderWorker.swift */,
+				849C56B028B5FBF9006DC93D /* ReminderRouter.swift */,
 				849C56B128B5FBF9006DC93D /* RemainderModels.swift */,
 			);
-			path = Remainder;
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 		849C56C028B61141006DC93D /* ModifyRemainder */ = {
@@ -184,7 +196,8 @@
 		849C56D428B64A7A006DC93D /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
-				849C56D528B64A92006DC93D /* RemainderForm.swift */,
+				849C56D528B64A92006DC93D /* ReminderForm.swift */,
+				84C37FBE28BA17440093A2F6 /* Aler.swift */,
 			);
 			path = Moduls;
 			sourceTree = "<group>";
@@ -193,8 +206,25 @@
 			isa = PBXGroup;
 			children = (
 				849C56DE28B68DC4006DC93D /* UpdatingWoker.swift */,
+				84C37FB428BA020C0093A2F6 /* NotificatinManegerWoker.swift */,
 			);
 			path = Wokers;
+			sourceTree = "<group>";
+		};
+		84C37FC828BA290F0093A2F6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				84C37FC928BA29260093A2F6 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		84C37FD228BA5B010093A2F6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				84C37FCD28BA419C0093A2F6 /* ReminderDetailsViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +297,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849C56D628B64A92006DC93D /* RemainderForm.swift in Sources */,
-				849C56B628B5FBFA006DC93D /* RemainderRouter.swift in Sources */,
+				849C56D628B64A92006DC93D /* ReminderForm.swift in Sources */,
+				849C56B628B5FBFA006DC93D /* ReminderRouter.swift in Sources */,
 				849C569C28B503DC006DC93D /* DirectoryFileViewController.swift in Sources */,
 				849C569B28B503DC006DC93D /* DirectoryFileModels.swift in Sources */,
 				849C569928B503DC006DC93D /* DirectoryFileWorker.swift in Sources */,
@@ -278,18 +308,22 @@
 				849C569A28B503DC006DC93D /* DirectoryFileRouter.swift in Sources */,
 				849C56B728B5FBFA006DC93D /* RemainderModels.swift in Sources */,
 				849C56C928B61168006DC93D /* ModifyRemainderRouter.swift in Sources */,
-				849C56B428B5FBFA006DC93D /* RemainderPresenter.swift in Sources */,
+				849C56B428B5FBFA006DC93D /* ReminderPresenter.swift in Sources */,
 				849C567C28B4F080006DC93D /* AppDelegate.swift in Sources */,
 				849C567E28B4F080006DC93D /* SceneDelegate.swift in Sources */,
 				849C569D28B503DC006DC93D /* DirectoryFileInteractor.swift in Sources */,
 				849C56AB28B56886006DC93D /* Constrants.swift in Sources */,
 				849C56CC28B61168006DC93D /* ModifyRemainderInteractor.swift in Sources */,
 				849C56C728B61168006DC93D /* ModifyRemainderPresenter.swift in Sources */,
-				849C56B928B5FBFA006DC93D /* RemainderInteractor.swift in Sources */,
-				849C56B828B5FBFA006DC93D /* RemainderViewController.swift in Sources */,
+				84C37FBF28BA17440093A2F6 /* Aler.swift in Sources */,
+				849C56B928B5FBFA006DC93D /* ReminderInteractor.swift in Sources */,
+				84C37FCE28BA419C0093A2F6 /* ReminderDetailsViewController.swift in Sources */,
+				849C56B828B5FBFA006DC93D /* ReminderViewController.swift in Sources */,
 				849C56CA28B61168006DC93D /* CreateRemainderModels.swift in Sources */,
 				849C56DF28B68DC5006DC93D /* UpdatingWoker.swift in Sources */,
-				849C56B528B5FBFA006DC93D /* RemainderWorker.swift in Sources */,
+				84C37FCA28BA29260093A2F6 /* Extension.swift in Sources */,
+				849C56B528B5FBFA006DC93D /* ReminderWorker.swift in Sources */,
+				84C37FB528BA020C0093A2F6 /* NotificatinManegerWoker.swift in Sources */,
 				849C56C828B61168006DC93D /* ModifyRemainderWorker.swift in Sources */,
 				849C56CB28B61168006DC93D /* ModifyRemainderViewController.swift in Sources */,
 			);
@@ -438,7 +472,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "MirianMAglakelidze#24/MirianMAglakelidze#24.entitlements";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "MirianMAglakelidze#24/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,6 +482,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Mirian-maglakelidze.MirianMAglakelidze-24";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -456,7 +493,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "MirianMAglakelidze#24/MirianMAglakelidze#24.entitlements";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "MirianMAglakelidze#24/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,6 +503,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Mirian-maglakelidze.MirianMAglakelidze-24";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

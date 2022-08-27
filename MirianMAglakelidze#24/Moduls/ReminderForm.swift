@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct RemainderForm: Codable {
+struct ReminderForm: Codable {
+    var id = UUID().uuidString
     var title: String
-    var info: String
+    var body: String
     var date: Date
 }
 
